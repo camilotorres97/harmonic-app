@@ -77,32 +77,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
     </android.support.design.widget.TextInputLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="35dp"
         android:text="@string/sign_up"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        android:textColor="@color/colorPrimaryDark"/>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:text="@string/sign_in"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
-        android:textColor="@color/colorPrimaryDark"/>
+        app:layout_constraintStart_toEndOf="@+id/btnSignUp"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
 </android.support.constraint.ConstraintLayout>
