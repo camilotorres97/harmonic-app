@@ -14,7 +14,7 @@
     <string name="btn_registrar">Registrar</string>
     <string name="btn_cancelar">Cancelar </string>
     <string name="tv_role_question">¿Qué quieres ser?</string>
-    <string name="is_required">Requerrido</string>
+    <string name="is_required">Requerido</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

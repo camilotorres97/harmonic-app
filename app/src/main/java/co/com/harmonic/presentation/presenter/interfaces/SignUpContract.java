@@ -19,7 +19,7 @@ public interface SignUpContract {
 
     interface UserActionsListener {
 
-        void onSignUp(String rol, String fullName, String email, String password);
+        void onSignUp(String fullName, String email, String password);
     }
 
 }
