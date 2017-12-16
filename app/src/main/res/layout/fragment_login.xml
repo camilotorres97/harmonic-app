@@ -92,24 +92,24 @@
 
     <Button
         android:id="@+id/btnSignUp"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="35dp"
         android:text="@string/sign_up"
-        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword" />
 
     <Button
         android:id="@+id/btnSignIn"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="35dp"
         android:text="@string/sign_in"
-        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.766"
         app:layout_constraintStart_toEndOf="@+id/btnSignUp"

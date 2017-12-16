@@ -7,8 +7,6 @@
     android:orientation="vertical"
     tools:context="co.com.harmonic.presentation.view.fragment.SignUpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
         android:id="@+id/tv_registrarUsuario"
         android:layout_width="wrap_content"
