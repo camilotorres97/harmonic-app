@@ -22,8 +22,8 @@ public class SignUpPresenter implements SignUpContract.UserActionsListener {
     }
 
     @Override
-    public void onSignUp(String fullName, String email, String password) {
-        userUseCase.signUp(fullName, email, password, new Callback<User>() {
+    public void onSignUp(String rol, String fullName, String email, String password) {
+        userUseCase.signUp(rol, fullName, email, password, new Callback<User>() {
             @Override
             public void success(User result) {
                 view.goToLoginFragment();
