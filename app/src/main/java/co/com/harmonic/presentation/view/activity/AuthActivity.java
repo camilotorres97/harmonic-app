@@ -64,7 +64,7 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
 
     @Override
     public void goToLoginFragment() {
-        replaceFragment(LoginFragment.getInstance(), false);
+        replaceFragment(LoginFragment.getInstance(), true);
     }
 
     @Override
@@ -72,16 +72,6 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override
