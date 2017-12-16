@@ -1,4 +1,4 @@
-package co.com.harmonic.domain.usecase;
+package co.com.harmonic.domain.usecase.interfaces;
 
 import co.com.harmonic.domain.model.User;
 import co.com.harmonic.helpers.Callback;
@@ -10,4 +10,6 @@ import co.com.harmonic.helpers.Callback;
 public interface UserUseCase {
 
     void login(String email, String password, Callback<User> callback);
+
+    void signUp(String rol, String fullName, String email, String password, Callback<User> callback);
 }

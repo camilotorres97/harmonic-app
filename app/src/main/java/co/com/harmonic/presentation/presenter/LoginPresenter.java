@@ -1,7 +1,7 @@
 package co.com.harmonic.presentation.presenter;
 
 import co.com.harmonic.domain.model.User;
-import co.com.harmonic.domain.usecase.UserUseCase;
+import co.com.harmonic.domain.usecase.interfaces.UserUseCase;
 import co.com.harmonic.domain.usecase.impl.UserUseCaseImpl;
 import co.com.harmonic.helpers.Callback;
 import co.com.harmonic.presentation.presenter.interfaces.LoginContract;
