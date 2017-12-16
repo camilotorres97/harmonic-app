@@ -40,8 +40,20 @@ public class UserUseCaseImpl implements UserUseCase {
     }
 
     @Override
-    public void signUp(String rol, String fullName, String email, String password, Callback<User> callback) {
+    public void signUp(String fullName, String email, String password, final Callback<User> callback) {
+        User user = new User(fullName,email,password);
 
+        userRepository.signUp(user, new Callback<User>() {
+            @Override
+            public void success(User user) {
+                callback.success(user);
+            }
+
+            @Override
+            public void error(Exception error) {
+                callback.error(error);
+            }
+        });
     }
 }
 
