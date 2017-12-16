@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity
         GeneralFragment generalFragment = GeneralFragment.getInstance();
         replaceFragment(generalFragment, false);
     }
-
     public void replaceFragment(Fragment fragment, boolean addToBackStack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
