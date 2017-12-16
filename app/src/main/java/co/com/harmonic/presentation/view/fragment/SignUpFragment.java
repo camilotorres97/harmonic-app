@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RadioButton;
 
-import org.w3c.dom.Text;
-
 import co.com.harmonic.R;
 import co.com.harmonic.presentation.presenter.SignUpPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.SignUpContract;
@@ -51,8 +49,9 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
         btn_registrar = view.findViewById(R.id.btn_registrar);
         btn_cancelar = view.findViewById(R.id.btn_cancelar);
 
-        rb_estudiante.setOnClickListener(this);
-        rb_instructor.setOnClickListener(this);
+        //TODO al poner los radio button como onclick genera error.
+//        rb_estudiante.setOnClickListener(this);
+//        rb_instructor.setOnClickListener(this);
         btn_registrar.setOnClickListener(this);
         btn_cancelar.setOnClickListener(this);
 

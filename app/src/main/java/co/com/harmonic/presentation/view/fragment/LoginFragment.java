@@ -16,6 +16,7 @@ import co.com.harmonic.R;
 import co.com.harmonic.helpers.Utilities;
 import co.com.harmonic.presentation.presenter.LoginPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.LoginContract;
+import co.com.harmonic.presentation.view.activity.AuthActivity;
 import co.com.harmonic.presentation.view.activity.MainActivity;
 
 
@@ -95,6 +96,8 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
     }
 
     public void goToSignUpFragment() {
+        AuthActivity authActivity = (AuthActivity) getActivity();
+        authActivity.replaceFragment(SignUpFragment.getInstance(), true);
     }
 
     @Override
