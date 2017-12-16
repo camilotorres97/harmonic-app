@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
-import co.com.harmonic.MainActivity;
 import co.com.harmonic.R;
 import co.com.harmonic.helpers.Utilities;
 import co.com.harmonic.presentation.presenter.LoginPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.LoginContract;
+import co.com.harmonic.presentation.view.activity.MainActivity;
 
 
 public class LoginFragment extends Fragment implements LoginContract.View, View.OnClickListener {

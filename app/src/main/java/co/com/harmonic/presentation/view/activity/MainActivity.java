@@ -1,4 +1,4 @@
-package co.com.harmonic;
+package co.com.harmonic.presentation.view.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import co.com.harmonic.R;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
