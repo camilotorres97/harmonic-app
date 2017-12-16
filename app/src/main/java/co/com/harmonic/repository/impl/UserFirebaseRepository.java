@@ -66,8 +66,6 @@ public class UserFirebaseRepository implements UserRepository{
                 });
     }
 
-    }
-
     @Override
     public void signUp(final User user, final Callback<User> callback) {
 
