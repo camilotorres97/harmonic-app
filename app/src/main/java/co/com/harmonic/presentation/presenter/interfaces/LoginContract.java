@@ -17,13 +17,10 @@ public interface LoginContract {
 
         void hideProgress();
 
-        void showRememberedUser(String email);
     }
 
     interface UserActionsListener {
-        void onLogin(String email, String password, boolean remember);
-
-        void configure();
+        void onLogin(String email, String password);
     }
 
 }

@@ -1,7 +1,7 @@
 package co.com.harmonic.helpers;
 
 /**
- * Created by juank on 15/12/2017.
+ * Created by Rodolhan on 15/12/2017.
  */
 
 public interface Callback<T> {
