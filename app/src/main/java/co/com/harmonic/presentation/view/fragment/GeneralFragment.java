@@ -3,14 +3,12 @@ package co.com.harmonic.presentation.view.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +18,12 @@ import co.com.harmonic.domain.model.Instructor;
 import co.com.harmonic.domain.model.Instrument;
 import co.com.harmonic.presentation.view.adapter.InstructorAdapter;
 import co.com.harmonic.presentation.view.adapter.InstrumentAdpater;
+import co.com.harmonic.presentation.view.adapter.ViewPagerAdapter;
 
 public class GeneralFragment extends Fragment {
     private RecyclerView rvInstrumenstList;
     private RecyclerView rvInstructorsList;
-    private ImageView imageView3;
+    private ViewPager viewPager;
     public GeneralFragment() {
         // Required empty public constructor
     }
@@ -37,7 +36,9 @@ public class GeneralFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_general, container, false);
-        imageView3 = view.findViewById(R.id.imageView3);
+        viewPager = view.findViewById(R.id.viewPager);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
+        viewPager.setAdapter(viewPagerAdapter);
         //RecyclerView Instrumentos
         rvInstrumenstList = view.findViewById(R.id.rvInstrumenstList);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -53,8 +54,8 @@ public class GeneralFragment extends Fragment {
         InstructorAdapter adapter1 = new InstructorAdapter(instructor());
         rvInstructorsList.setAdapter(adapter1);
         refreshLists();
-        Glide.with(view).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-8lhm4g7qqZFkemR3itAD36i0GwWh1O-wLJucESw08igCko9-SA")
-                .into(imageView3);
+//        Glide.with(view).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-8lhm4g7qqZFkemR3itAD36i0GwWh1O-wLJucESw08igCko9-SA")
+//                .into(imageView3);
         return view;
     }
 
