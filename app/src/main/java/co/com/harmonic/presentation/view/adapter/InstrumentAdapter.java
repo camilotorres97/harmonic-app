@@ -18,10 +18,10 @@ import co.com.harmonic.domain.model.Instrument;
  * Created by Rodolhan on 16/12/2017.
  */
 
-public class InstrumentAdpater extends RecyclerView.Adapter<InstrumentAdpater.InstrumentViewHolder> {
+public class InstrumentAdapter extends RecyclerView.Adapter<InstrumentAdapter.InstrumentViewHolder> {
     private List<Instrument> dataSet;
 
-    public InstrumentAdpater(List<Instrument> dataSet) {
+    public InstrumentAdapter(List<Instrument> dataSet) {
         this.dataSet = dataSet;
     }
 

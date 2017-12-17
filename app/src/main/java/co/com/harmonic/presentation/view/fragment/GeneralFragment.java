@@ -17,7 +17,7 @@ import co.com.harmonic.R;
 import co.com.harmonic.domain.model.Instructor;
 import co.com.harmonic.domain.model.Instrument;
 import co.com.harmonic.presentation.view.adapter.InstructorAdapter;
-import co.com.harmonic.presentation.view.adapter.InstrumentAdpater;
+import co.com.harmonic.presentation.view.adapter.InstrumentAdapter;
 import co.com.harmonic.presentation.view.adapter.ViewPagerAdapter;
 
 public class GeneralFragment extends Fragment {
@@ -44,7 +44,7 @@ public class GeneralFragment extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvInstrumenstList.setLayoutManager(layoutManager);
-        InstrumentAdpater adapter = new InstrumentAdpater(instrumento());
+        InstrumentAdapter adapter = new InstrumentAdapter(instrumento());
         rvInstrumenstList.setAdapter(adapter);
         //RecyclerView Instrumentos
         rvInstructorsList = view.findViewById(R.id.rvInstructorsList);
