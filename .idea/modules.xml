@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Harmonic.iml" filepath="$PROJECT_DIR$/Harmonic.iml" />
-      <module fileurl="file://E:\Google Drive\DEVHACK\Harmonic\Harmonic-App.iml" filepath="E:\Google Drive\DEVHACK\Harmonic\Harmonic-App.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Harmonic-App.iml" filepath="$PROJECT_DIR$/Harmonic-App.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
