@@ -116,16 +116,16 @@ public class GeneralFragment extends Fragment {
         list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/12/armonica-memphis-1024x683.jpg"
                 , "Armónica"
                 , 1));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/people-2577951_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/12/hand-977641_1920-1024x683.jpg"
                 , "Canto"
                 , 2));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/12/hand-977641_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/guitar-1180744_1920-1024x683.jpg"
                 , "Guitarra"
                 , 3));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/band-691224_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/people-2577951_1920-1024x683.jpg"
                 , "Piano"
                 , 4));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/guitar-1180744_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/band-691224_1920-1024x683.jpg"
                 , "Saxofón"
                 , 5));
 

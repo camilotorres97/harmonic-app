@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import co.com.harmonic.presentation.view.adapter.ViewPagerAdapter;
 
 public class AboutFragment extends Fragment {
 
-    private ViewPager viewPager;
+    private ImageView imageView;
     private RecyclerView rvInstrumenstList;
     private RecyclerView rvInstructorsList;
 
@@ -38,9 +39,10 @@ public class AboutFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
 
-        viewPager = view.findViewById(R.id.viewPager);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
-        viewPager.setAdapter(viewPagerAdapter);
+        //Seteo ImageView
+        imageView = view.findViewById(R.id.iv_Instrumento);
+        imageView.setImageResource(R.drawable.guitar);
+        imageView.setScaleType(ImageView.ScaleType.CENTER);
 
         //RecyclerView Instrumentos
         rvInstrumenstList = view.findViewById(R.id.rvInstrumenstList);
@@ -131,16 +133,16 @@ public class AboutFragment extends Fragment {
         list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/12/armonica-memphis-1024x683.jpg"
                 , "Armónica"
                 , 1));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/people-2577951_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/12/hand-977641_1920-1024x683.jpg"
                 , "Canto"
                 , 2));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/12/hand-977641_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/guitar-1180744_1920-1024x683.jpg"
                 , "Guitarra"
                 , 3));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/band-691224_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/people-2577951_1920-1024x683.jpg"
                 , "Piano"
                 , 4));
-        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/guitar-1180744_1920-1024x683.jpg"
+        list.add(new Instrument("http://harmonic.com.co/wp-content/uploads/2017/11/band-691224_1920-1024x683.jpg"
                 , "Saxofón"
                 , 5));
 
