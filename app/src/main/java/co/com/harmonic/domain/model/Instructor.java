@@ -12,11 +12,12 @@ public class Instructor {
     private float rating;
     private String rol;
     private String image;
+    private Integer id_categoria;
 
     public Instructor() {
     }
 
-    public Instructor(String apodo, String biografia, String nombre, String precio, int rating, String rol, String image) {
+    public Instructor(String apodo, String biografia, String nombre, String precio, int rating, String rol, String image, Integer id_categoria) {
         this.apodo = apodo;
         this.biografia = biografia;
         this.nombre = nombre;
@@ -24,6 +25,8 @@ public class Instructor {
         this.rating = rating;
         this.rol = rol;
         this.image = image;
+        this.id_categoria = id_categoria;
+
     }
 
     public String getApodo() {
@@ -80,5 +83,13 @@ public class Instructor {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public Integer getId_categoria() {
+        return id_categoria;
+    }
+
+    public void setId_categoria(Integer id_categoria) {
+        this.id_categoria = id_categoria;
     }
 }
