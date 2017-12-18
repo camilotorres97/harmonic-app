@@ -16,8 +16,13 @@ import android.view.View;
 
 import co.com.harmonic.R;
 import co.com.harmonic.presentation.presenter.AuthPresenter;
+import co.com.harmonic.presentation.presenter.interfaces.AboutContract;
 import co.com.harmonic.presentation.presenter.interfaces.AuthContract;
+import co.com.harmonic.presentation.view.fragment.AboutFragment;
+import co.com.harmonic.presentation.view.fragment.DetailFragment;
+import co.com.harmonic.presentation.view.fragment.GeneralFragment;
 import co.com.harmonic.presentation.view.fragment.LoginFragment;
+import co.com.harmonic.presentation.view.fragment.SignUpFragment;
 
 public class AuthActivity extends AppCompatActivity implements AuthContract.View, NavigationView.OnNavigationItemSelectedListener {
     private AuthContract.UserActionsLister mActionsListener;
@@ -89,6 +94,16 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         return super.onOptionsItemSelected(item);
     }
 
+    private void goToAboutFragment(){
+        AboutFragment aboutFragment = AboutFragment.getInstance();
+        replaceFragment(aboutFragment, false);
+    }
+
+    private void goToGeneralFragment(){
+        GeneralFragment generalFragment = GeneralFragment.getInstance();
+        replaceFragment(generalFragment, false);
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -96,23 +111,25 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
-            // Handle the camera action
+            goToGeneralFragment();
         } else if (id == R.id.nav_notifications) {
 
         } else if (id == R.id.nav_favorites) {
 
         } else if (id == R.id.nav_categories) {
-
+            goToAboutFragment();
         } else if (id == R.id.nav_configuration) {
 
         } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_login) {
-
+            goToLoginFragment();
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+        DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        //TODO Arreglar excepción en closeDrawer().
+        // java.lang.NullPointerException: Attempt to invoke virtual method 'void android.support.v4.widget.DrawerLayout.closeDrawer(int)' on a null object reference
+        //drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 

@@ -24,8 +24,7 @@ public class GeneralFragment extends Fragment {
     private RecyclerView rvInstrumenstList;
     private RecyclerView rvInstructorsList;
     private ViewPager viewPager;
-    public GeneralFragment() {
-        // Required empty public constructor
+    public GeneralFragment() {        // Required empty public constructor
     }
 
     public static GeneralFragment getInstance() {

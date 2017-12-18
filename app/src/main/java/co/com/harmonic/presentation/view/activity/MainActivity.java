@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity
         GeneralFragment generalFragment = GeneralFragment.getInstance();
         replaceFragment(generalFragment, false);
     }
+
     public void replaceFragment(Fragment fragment, boolean addToBackStack) {
         FragmentManager fragmentManager = getSupportFragmentManager();
 
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_notifications) {
 
         } else if (id == R.id.nav_favorites) {
@@ -122,7 +123,7 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
