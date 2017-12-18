@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     tools:context="co.com.harmonic.presentation.view.fragment.AboutFragment">
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
+    <ImageView
+        android:id="@+id/iv_Instrumento"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_marginEnd="8dp"

@@ -16,13 +16,10 @@ import android.view.View;
 
 import co.com.harmonic.R;
 import co.com.harmonic.presentation.presenter.AuthPresenter;
-import co.com.harmonic.presentation.presenter.interfaces.AboutContract;
 import co.com.harmonic.presentation.presenter.interfaces.AuthContract;
 import co.com.harmonic.presentation.view.fragment.AboutFragment;
-import co.com.harmonic.presentation.view.fragment.DetailFragment;
 import co.com.harmonic.presentation.view.fragment.GeneralFragment;
 import co.com.harmonic.presentation.view.fragment.LoginFragment;
-import co.com.harmonic.presentation.view.fragment.SignUpFragment;
 
 public class AuthActivity extends AppCompatActivity implements AuthContract.View, NavigationView.OnNavigationItemSelectedListener {
     private AuthContract.UserActionsLister mActionsListener;
