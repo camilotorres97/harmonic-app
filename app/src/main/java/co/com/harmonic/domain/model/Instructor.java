@@ -9,7 +9,7 @@ public class Instructor {
     private String biografia;
     private String nombre;
     private String precio;
-    private float rating;
+    private String rating;
     private String rol;
     private String image;
     private String id_instructor;
@@ -17,7 +17,7 @@ public class Instructor {
     public Instructor() {
     }
 
-    public Instructor(String apodo, String biografia, String nombre, String precio, int rating, String rol, String image, String id_instructor) {
+    public Instructor(String apodo, String biografia, String nombre, String precio, String rating, String rol, String image, String id_instructor) {
         this.apodo = apodo;
         this.biografia = biografia;
         this.nombre = nombre;
@@ -61,11 +61,11 @@ public class Instructor {
         this.precio = precio;
     }
 
-    public float getRating() {
+    public String getRating() {
         return rating;
     }
 
-    public void setRating(float rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 

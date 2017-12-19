@@ -44,7 +44,7 @@ public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.In
         holder.tvText_Instructor.setText(instructor.getNombre());
         holder.tvText_Instructor1.setText(instructor.getApodo());
         holder.tvText_Instructor2.setText(instructor.getRol());
-        holder.stars.setRating(instructor.getRating());
+        holder.stars.setRating(Float.parseFloat(instructor.getRating()));
     }
 
     @Override
