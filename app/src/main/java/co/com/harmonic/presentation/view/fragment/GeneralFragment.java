@@ -16,6 +16,8 @@ import java.util.List;
 import co.com.harmonic.R;
 import co.com.harmonic.domain.model.Instructor;
 import co.com.harmonic.domain.model.Instrument;
+import co.com.harmonic.helpers.Callback;
+import co.com.harmonic.presentation.presenter.GeneralPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.GeneralContract;
 import co.com.harmonic.presentation.view.activity.MainActivity;
 import co.com.harmonic.presentation.view.adapter.InstructorAdapter;
@@ -27,6 +29,7 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
     private RecyclerView rvInstructorsList;
     private ViewPager viewPager;
     private GeneralContract.UserActionsListener mActionListener;
+    private InstrumentAdapter adapter = new InstrumentAdapter(new ArrayList<Instrument>());
     public GeneralFragment() {        // Required empty public constructor
     }
 
@@ -38,6 +41,7 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_general, container, false);
+        mActionListener = new GeneralPresenter(this);
         viewPager = view.findViewById(R.id.viewPager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
         viewPager.setAdapter(viewPagerAdapter);
@@ -46,7 +50,19 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvInstrumenstList.setLayoutManager(layoutManager);
-        InstrumentAdapter adapter = new InstrumentAdapter(instrumento());
+        final List<Instrument>[] list = new List[]{new ArrayList<>()};
+        mActionListener.getAllInstruments(new Callback<List<Instrument>>() {
+            @Override
+            public void success(List<Instrument> result) {
+                adapter = new InstrumentAdapter(result);
+                rvInstrumenstList.setAdapter(adapter);
+            }
+
+            @Override
+            public void error(Exception error) {
+
+            }
+        });
         adapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
