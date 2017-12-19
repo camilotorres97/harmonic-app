@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -99,10 +98,8 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
         instrumentAdapter = new InstrumentAdapter(result);
         instrumentAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view1) {
-                ImageView imageView = view1.findViewById(R.id.imageitem);
-
-                goToAbouthFragment(result);
+            public void onClick(View view_help) {
+                goToAbouthFragment(result, view_help);
             }
         });
         rvInstrumenstList.setAdapter(instrumentAdapter);
@@ -111,9 +108,9 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
 
 
     @Override
-    public void goToAbouthFragment(List<Instrument> result) {
+    public void goToAbouthFragment(List<Instrument> result, View view_help) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.replaceFragment(AboutFragment.getInstance(result), true);
+        mainActivity.replaceFragment(AboutFragment.getInstance(result, view_help), true);
     }
 
     @Override

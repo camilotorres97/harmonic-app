@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
@@ -25,7 +26,8 @@ import co.com.harmonic.presentation.view.adapter.InstructorAdapter;
 import co.com.harmonic.presentation.view.adapter.InstrumentAdapter;
 
 public class AboutFragment extends Fragment implements AboutContract.View {
-    static List<Instrument> instrumentListt;
+    static private List<Instrument> instrumentListt;
+    static private View view_help;
     static private ImageView imageView;
     private AboutContract.UserActionsListener mActionListener;
     private RecyclerView rvInstrumenstList;
@@ -36,7 +38,8 @@ public class AboutFragment extends Fragment implements AboutContract.View {
         // Required empty public constructor
     }
 
-    public static AboutFragment getInstance(List<Instrument> list) {
+    public static AboutFragment getInstance(List<Instrument> list, View help) {
+        view_help = help;
         instrumentListt = list;
         return new AboutFragment();
     }
@@ -48,14 +51,15 @@ public class AboutFragment extends Fragment implements AboutContract.View {
         mActionListener = new AboutPresenter(this);
         //Seteo ImageView
         imageView = view.findViewById(R.id.iv_Instrumento);
-        Glide.with(view).load(R.drawable.guitar).into(imageView);
-
+        ImageView image_help = view_help.findViewById(R.id.ivPhoto_Instrument);
+        Glide.with(view).load(image_help.getDrawable()).into(imageView);
         //RecyclerView Instrumentos
         rvInstrumenstList = view.findViewById(R.id.rvInstrumenstList);
         getAllInstruments();
         //RecyclerView Instructos
+        TextView id = view_help.findViewById(R.id.tvInstrument);
         rvInstructorsList = view.findViewById(R.id.rvInstructorsList);
-        mActionListener.getAllInstructors("armonica", new Callback<List<Instructor>>() {
+        mActionListener.getAllInstructors(id.getText().toString().toLowerCase(), new Callback<List<Instructor>>() {
             @Override
             public void success(List<Instructor> result) {
                 getAllInstructors(result);
@@ -91,8 +95,8 @@ public class AboutFragment extends Fragment implements AboutContract.View {
         instrumentAdapter = new InstrumentAdapter(instrumentListt);
         instrumentAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view1) {
-                goToAbouthFragment(instrumentListt);
+            public void onClick(View view_help) {
+                goToAbouthFragment(instrumentListt, view_help);
             }
         });
         rvInstrumenstList.setAdapter(instrumentAdapter);
@@ -100,9 +104,9 @@ public class AboutFragment extends Fragment implements AboutContract.View {
     }
 
     @Override
-    public void goToAbouthFragment(List<Instrument> result) {
+    public void goToAbouthFragment(List<Instrument> result, View view_help) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.replaceFragment(AboutFragment.getInstance(result), true);
+        mainActivity.replaceFragment(AboutFragment.getInstance(result, view_help), true);
     }
 
     @Override
