@@ -32,17 +32,5 @@ public class InstrumentUseCaseImpl implements InstrumentUseCase {
 
             }
         });
-//        instrumentRepository.getAllInstruments(new Callback<List<Instrument>>() {
-//            @Override
-//            public List<Instrument> success(List<Instrument> result) {
-//                listCallback.success(result);
-//                return result;
-//            }
-//
-//            @Override
-//            public void error(Exception error) {
-//listCallback.error(error);
-//            }
-//        });
     }
 }

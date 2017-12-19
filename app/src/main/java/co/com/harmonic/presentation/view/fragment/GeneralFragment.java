@@ -47,15 +47,10 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
         viewPager.setAdapter(viewPagerAdapter);
         //RecyclerView Instrumentos
         rvInstrumenstList = view.findViewById(R.id.rvInstrumenstList);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvInstrumenstList.setLayoutManager(layoutManager);
-        final List<Instrument>[] list = new List[]{new ArrayList<>()};
         mActionListener.getAllInstruments(new Callback<List<Instrument>>() {
             @Override
             public void success(List<Instrument> result) {
-                adapter = new InstrumentAdapter(result);
-                rvInstrumenstList.setAdapter(adapter);
+                getAllInstruments(result);
             }
 
             @Override
@@ -63,13 +58,6 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
 
             }
         });
-        adapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view1) {
-                goToAbouthFragment();
-            }
-        });
-        rvInstrumenstList.setAdapter(adapter);
         //RecyclerView Instrumentos
         rvInstructorsList = view.findViewById(R.id.rvInstructorsList);
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext());
@@ -85,6 +73,23 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
         rvInstructorsList.setAdapter(adapter1);
         refreshLists();
         return view;
+    }
+
+    private void getAllInstruments(List<Instrument> result) {
+
+        rvInstrumenstList.setAdapter(adapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvInstrumenstList.setLayoutManager(layoutManager);
+        adapter = new InstrumentAdapter(result);
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                goToAbouthFragment();
+            }
+        });
+        rvInstrumenstList.setAdapter(adapter);
+        rvInstrumenstList.getAdapter().notifyDataSetChanged();
     }
 
     private List<Instructor> instructor() {
@@ -135,7 +140,7 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
 
 
     public void refreshLists() {
-        rvInstrumenstList.getAdapter().notifyDataSetChanged();
+
         rvInstructorsList.getAdapter().notifyDataSetChanged();
     }
 
