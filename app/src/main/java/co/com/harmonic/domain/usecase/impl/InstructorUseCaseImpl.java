@@ -33,4 +33,19 @@ public class InstructorUseCaseImpl implements InstructorUseCase {
             }
         });
     }
+
+    @Override
+    public void getAllInstructorsAbout(String id, final Callback<List<Instructor>> listCallback) {
+        instructorRepository.getAllInstructorsAbout(id, new Callback<List<Instructor>>() {
+            @Override
+            public void success(List<Instructor> result) {
+                listCallback.success(result);
+            }
+
+            @Override
+            public void error(Exception error) {
+
+            }
+        });
+    }
 }

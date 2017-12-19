@@ -12,12 +12,12 @@ public class Instructor {
     private String rating;
     private String rol;
     private String image;
-    private String id_instructor;
+    private String id;
 
     public Instructor() {
     }
 
-    public Instructor(String apodo, String biografia, String nombre, String precio, String rating, String rol, String image, String id_instructor) {
+    public Instructor(String apodo, String biografia, String nombre, String precio, String rating, String rol, String image, String id) {
         this.apodo = apodo;
         this.biografia = biografia;
         this.nombre = nombre;
@@ -25,7 +25,7 @@ public class Instructor {
         this.rating = rating;
         this.rol = rol;
         this.image = image;
-        this.id_instructor = id_instructor;
+        this.id = id;
 
     }
 
@@ -85,11 +85,11 @@ public class Instructor {
         this.image = image;
     }
 
-    public String getId_instructor() {
-        return id_instructor;
+    public String getId() {
+        return id;
     }
 
-    public void setId_instructor(String id_instructor) {
-        this.id_instructor = id_instructor;
+    public void setId(String id) {
+        this.id = id;
     }
 }

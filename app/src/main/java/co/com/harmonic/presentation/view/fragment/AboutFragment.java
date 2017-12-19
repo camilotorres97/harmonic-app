@@ -17,6 +17,7 @@ import java.util.List;
 import co.com.harmonic.R;
 import co.com.harmonic.domain.model.Instructor;
 import co.com.harmonic.domain.model.Instrument;
+import co.com.harmonic.helpers.Callback;
 import co.com.harmonic.presentation.presenter.AboutPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.AboutContract;
 import co.com.harmonic.presentation.view.activity.MainActivity;
@@ -52,19 +53,19 @@ public class AboutFragment extends Fragment implements AboutContract.View {
         //RecyclerView Instrumentos
         rvInstrumenstList = view.findViewById(R.id.rvInstrumenstList);
         getAllInstruments();
-        //RecyclerView Instrumentos
+        //RecyclerView Instructos
         rvInstructorsList = view.findViewById(R.id.rvInstructorsList);
-//        mActionListener.getAllInstructors(new Callback<List<Instructor>>() {
-//            @Override
-//            public void success(List<Instructor> result) {
-//                getAllInstructors(result);
-//            }
-//
-//            @Override
-//            public void error(Exception error) {
-//
-//            }
-//        });
+        mActionListener.getAllInstructors("armonica", new Callback<List<Instructor>>() {
+            @Override
+            public void success(List<Instructor> result) {
+                getAllInstructors(result);
+            }
+
+            @Override
+            public void error(Exception error) {
+
+            }
+        });
         return view;
     }
 

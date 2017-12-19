@@ -11,4 +11,6 @@ import co.com.harmonic.helpers.Callback;
 
 public interface InstructorUseCase {
     void getAllInstructors(Callback<List<Instructor>> listCallback);
+
+    void getAllInstructorsAbout(String id, Callback<List<Instructor>> listCallback);
 }
