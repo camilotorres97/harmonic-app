@@ -33,7 +33,7 @@ public class AboutFragment extends Fragment implements AboutContract.View {
     private RecyclerView rvInstrumenstList;
     private RecyclerView rvInstructorsList;
     private InstrumentAdapter instrumentAdapter = new InstrumentAdapter(new ArrayList<Instrument>());
-    private InstructorAdapter instructorAdapter = new InstructorAdapter(new ArrayList<Instructor>());
+    private InstructorAdapter instructorAdapter = new InstructorAdapter(new ArrayList<Instructor>(), true);
     public AboutFragment() {
         // Required empty public constructor
     }
@@ -77,7 +77,7 @@ public class AboutFragment extends Fragment implements AboutContract.View {
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext());
         layoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
         rvInstructorsList.setLayoutManager(layoutManager1);
-        instructorAdapter = new InstructorAdapter(result);
+        instructorAdapter = new InstructorAdapter(result, true);
         instructorAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View instructorAdapter) {

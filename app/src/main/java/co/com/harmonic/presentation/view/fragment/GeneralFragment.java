@@ -30,7 +30,7 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
     private ViewPager viewPager;
     private GeneralContract.UserActionsListener mActionListener;
     private InstrumentAdapter instrumentAdapter = new InstrumentAdapter(new ArrayList<Instrument>());
-    private InstructorAdapter instructorAdapter = new InstructorAdapter(new ArrayList<Instructor>());
+    private InstructorAdapter instructorAdapter = new InstructorAdapter(new ArrayList<Instructor>(), false);
 
     public GeneralFragment() {        // Required empty public constructor
     }
@@ -80,7 +80,7 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext());
         layoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
         rvInstructorsList.setLayoutManager(layoutManager1);
-        instructorAdapter = new InstructorAdapter(result);
+        instructorAdapter = new InstructorAdapter(result, false);
         instructorAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View instructorAdapter) {

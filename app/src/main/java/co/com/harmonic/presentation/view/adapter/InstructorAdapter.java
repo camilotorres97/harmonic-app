@@ -22,10 +22,12 @@ import co.com.harmonic.domain.model.Instructor;
 public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.InstructorViewHolder> implements View.OnClickListener {
     private List<Instructor> dataSet;
     private View.OnClickListener listener;
+    private Boolean acceso;
 
-    public InstructorAdapter(List<Instructor> dataSet) {
+    public InstructorAdapter(List<Instructor> dataSet, Boolean acceso) {
         super();
         this.dataSet = dataSet;
+        this.acceso = acceso;
     }
 
     @Override
@@ -42,9 +44,14 @@ public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.In
                 .load(instructor.getImage())
                 .into(holder.ivPhoto_Instructor);
         holder.tvText_Instructor.setText(instructor.getNombre());
-        holder.tvText_Instructor1.setText(instructor.getApodo());
-        holder.tvText_Instructor2.setText(instructor.getRol());
         holder.stars.setRating(Float.parseFloat(instructor.getRating()));
+        if (acceso == false) {
+            holder.tvText_Instructor1.setText(instructor.getApodo());
+            holder.tvText_Instructor2.setText(instructor.getRol());
+        } else {
+            holder.tvText_Instructor1.setText("$" + instructor.getPrecio() + "/Clase");
+            holder.tvText_Instructor2.setText("");
+        }
     }
 
     @Override
