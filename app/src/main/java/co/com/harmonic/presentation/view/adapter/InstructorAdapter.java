@@ -52,6 +52,7 @@ public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.In
             holder.tvText_Instructor1.setText("$" + instructor.getPrecio() + "/Clase");
             holder.tvText_Instructor2.setText("");
         }
+        holder.tvBiography.setText(instructor.getBiografia());
     }
 
     @Override
@@ -77,6 +78,7 @@ public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.In
         public TextView tvText_Instructor1;
         public TextView tvText_Instructor2;
         public RatingBar stars;
+        public TextView tvBiography;
 
         public InstructorViewHolder(View itemView) {
             super(itemView);
@@ -85,6 +87,7 @@ public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.In
             tvText_Instructor1 = itemView.findViewById(R.id.tvText_Instructor1);
             tvText_Instructor2 = itemView.findViewById(R.id.tvText_Instructor2);
             stars = itemView.findViewById(R.id.stars);
+            tvBiography = itemView.findViewById(R.id.tvBiography);
         }
     }
 }

@@ -14,7 +14,7 @@ public interface GeneralContract {
     interface View {
         void goToAbouthFragment(List<Instrument> result, android.view.View view_help);
 
-        void goToDetailFragment();
+        void goToDetailFragment(android.view.View view_help);
     }
 
     interface UserActionsListener {

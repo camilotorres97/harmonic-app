@@ -80,8 +80,8 @@ public class AboutFragment extends Fragment implements AboutContract.View {
         instructorAdapter = new InstructorAdapter(result, true);
         instructorAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View instructorAdapter) {
-                goToDetailFragment();
+            public void onClick(View view_help) {
+                goToDetailFragment(view_help);
             }
         });
         rvInstructorsList.setAdapter(instructorAdapter);
@@ -110,9 +110,9 @@ public class AboutFragment extends Fragment implements AboutContract.View {
     }
 
     @Override
-    public void goToDetailFragment() {
+    public void goToDetailFragment(View view_help) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.replaceFragment(DetailFragment.getInstance(), true);
+        mainActivity.replaceFragment(DetailFragment.getInstance(view_help), true);
     }
 
 }
