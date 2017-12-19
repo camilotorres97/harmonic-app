@@ -12,7 +12,7 @@ import co.com.harmonic.helpers.Callback;
 
 public interface GeneralContract {
     interface View {
-        void goToAbouthFragment();
+        void goToAbouthFragment(List<Instrument> result);
 
         void goToDetailFragment();
     }

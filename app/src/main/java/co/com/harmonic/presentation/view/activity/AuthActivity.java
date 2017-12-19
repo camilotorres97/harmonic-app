@@ -17,7 +17,6 @@ import android.view.View;
 import co.com.harmonic.R;
 import co.com.harmonic.presentation.presenter.AuthPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.AuthContract;
-import co.com.harmonic.presentation.view.fragment.AboutFragment;
 import co.com.harmonic.presentation.view.fragment.GeneralFragment;
 import co.com.harmonic.presentation.view.fragment.LoginFragment;
 
@@ -91,10 +90,10 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         return super.onOptionsItemSelected(item);
     }
 
-    private void goToAboutFragment(){
-        AboutFragment aboutFragment = AboutFragment.getInstance();
-        replaceFragment(aboutFragment, false);
-    }
+//    private void goToAboutFragment(){
+//        AboutFragment aboutFragment = AboutFragment.getInstance();
+//        replaceFragment(aboutFragment, false);
+//    }
 
     private void goToGeneralFragment(){
         GeneralFragment generalFragment = GeneralFragment.getInstance();
@@ -114,7 +113,7 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         } else if (id == R.id.nav_favorites) {
 
         } else if (id == R.id.nav_categories) {
-            goToAboutFragment();
+            // goToAboutFragment();
         } else if (id == R.id.nav_configuration) {
 
         } else if (id == R.id.nav_help) {

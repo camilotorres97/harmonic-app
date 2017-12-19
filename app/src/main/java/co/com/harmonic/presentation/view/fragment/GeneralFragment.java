@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,8 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
     private RecyclerView rvInstructorsList;
     private ViewPager viewPager;
     private GeneralContract.UserActionsListener mActionListener;
-    private InstrumentAdapter adapter = new InstrumentAdapter(new ArrayList<Instrument>());
+    private InstrumentAdapter instrumentAdapter = new InstrumentAdapter(new ArrayList<Instrument>());
+    private InstructorAdapter instructorAdapter = new InstructorAdapter(new ArrayList<Instructor>());
 
     public GeneralFragment() {        // Required empty public constructor
     }
@@ -79,39 +81,39 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
         LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext());
         layoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
         rvInstructorsList.setLayoutManager(layoutManager1);
-        InstructorAdapter adapter1 = new InstructorAdapter(result);
-        adapter1.setOnClickListener(new View.OnClickListener() {
+        instructorAdapter = new InstructorAdapter(result);
+        instructorAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view1) {
+            public void onClick(View instructorAdapter) {
                 goToDetailFragment();
             }
         });
-        rvInstructorsList.setAdapter(adapter1);
+        rvInstructorsList.setAdapter(instructorAdapter);
         rvInstructorsList.getAdapter().notifyDataSetChanged();
     }
 
-    private void getAllInstruments(List<Instrument> result) {
-
-        rvInstrumenstList.setAdapter(adapter);
+    private void getAllInstruments(final List<Instrument> result) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvInstrumenstList.setLayoutManager(layoutManager);
-        adapter = new InstrumentAdapter(result);
-        adapter.setOnClickListener(new View.OnClickListener() {
+        instrumentAdapter = new InstrumentAdapter(result);
+        instrumentAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
-                goToAbouthFragment();
+                ImageView imageView = view1.findViewById(R.id.imageitem);
+
+                goToAbouthFragment(result);
             }
         });
-        rvInstrumenstList.setAdapter(adapter);
+        rvInstrumenstList.setAdapter(instrumentAdapter);
         rvInstrumenstList.getAdapter().notifyDataSetChanged();
     }
 
 
     @Override
-    public void goToAbouthFragment() {
+    public void goToAbouthFragment(List<Instrument> result) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.replaceFragment(AboutFragment.getInstance(), true);
+        mainActivity.replaceFragment(AboutFragment.getInstance(result), true);
     }
 
     @Override
