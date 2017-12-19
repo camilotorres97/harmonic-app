@@ -2,6 +2,7 @@ package co.com.harmonic.presentation.presenter.interfaces;
 
 import java.util.List;
 
+import co.com.harmonic.domain.model.Instructor;
 import co.com.harmonic.domain.model.Instrument;
 import co.com.harmonic.helpers.Callback;
 
@@ -18,5 +19,7 @@ public interface GeneralContract {
 
     interface UserActionsListener {
         void getAllInstruments(Callback<List<Instrument>> listCallback);
+
+        void getAllInstructors(Callback<List<Instructor>> listCallback);
     }
 }

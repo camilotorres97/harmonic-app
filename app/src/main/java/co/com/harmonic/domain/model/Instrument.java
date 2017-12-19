@@ -7,13 +7,13 @@ package co.com.harmonic.domain.model;
 public class Instrument {
     private String image;
     private String instrumento;
-    private Integer id_categoria;
+    private String id_categoria;
 
 
     public Instrument() {
     }
 
-    public Instrument(String image, String instrumento, Integer id_categoria) {
+    public Instrument(String image, String instrumento, String id_categoria) {
         this.image = image;
         this.instrumento = instrumento;
         this.id_categoria = id_categoria;
@@ -35,12 +35,12 @@ public class Instrument {
         this.instrumento = instrumento;
     }
 
-    public void setId_categoria(Integer id_categoria) {
-        this.id_categoria = id_categoria;
+    public String getId_categoria() {
+        return id_categoria;
     }
 
-    public Integer getId_categoria() {
-        return id_categoria;
+    public void setId_categoria(String id_categoria) {
+        this.id_categoria = id_categoria;
     }
 
 }
