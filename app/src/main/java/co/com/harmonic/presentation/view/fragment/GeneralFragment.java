@@ -16,14 +16,17 @@ import java.util.List;
 import co.com.harmonic.R;
 import co.com.harmonic.domain.model.Instructor;
 import co.com.harmonic.domain.model.Instrument;
+import co.com.harmonic.presentation.presenter.interfaces.GeneralContract;
+import co.com.harmonic.presentation.view.activity.MainActivity;
 import co.com.harmonic.presentation.view.adapter.InstructorAdapter;
 import co.com.harmonic.presentation.view.adapter.InstrumentAdapter;
 import co.com.harmonic.presentation.view.adapter.ViewPagerAdapter;
 
-public class GeneralFragment extends Fragment {
+public class GeneralFragment extends Fragment implements GeneralContract.View {
     private RecyclerView rvInstrumenstList;
     private RecyclerView rvInstructorsList;
     private ViewPager viewPager;
+    private GeneralContract.UserActionsListener mActionListener;
     public GeneralFragment() {        // Required empty public constructor
     }
 
@@ -34,7 +37,7 @@ public class GeneralFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_general, container, false);
+        final View view = inflater.inflate(R.layout.fragment_general, container, false);
         viewPager = view.findViewById(R.id.viewPager);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getContext());
         viewPager.setAdapter(viewPagerAdapter);
@@ -44,6 +47,12 @@ public class GeneralFragment extends Fragment {
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvInstrumenstList.setLayoutManager(layoutManager);
         InstrumentAdapter adapter = new InstrumentAdapter(instrumento());
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                goToAbouthFragment();
+            }
+        });
         rvInstrumenstList.setAdapter(adapter);
         //RecyclerView Instrumentos
         rvInstructorsList = view.findViewById(R.id.rvInstructorsList);
@@ -51,10 +60,14 @@ public class GeneralFragment extends Fragment {
         layoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
         rvInstructorsList.setLayoutManager(layoutManager1);
         InstructorAdapter adapter1 = new InstructorAdapter(instructor());
+        adapter1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                goToDetailFragment();
+            }
+        });
         rvInstructorsList.setAdapter(adapter1);
         refreshLists();
-//        Glide.with(view).load("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-8lhm4g7qqZFkemR3itAD36i0GwWh1O-wLJucESw08igCko9-SA")
-//                .into(imageView3);
         return view;
     }
 
@@ -132,5 +145,17 @@ public class GeneralFragment extends Fragment {
         return list;
     }
 
+
+    @Override
+    public void goToAbouthFragment() {
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.replaceFragment(AboutFragment.getInstance(), true);
+    }
+
+    @Override
+    public void goToDetailFragment() {
+        MainActivity mainActivity = (MainActivity) getActivity();
+        mainActivity.replaceFragment(DetailFragment.getInstance(), true);
+    }
 
 }

@@ -65,7 +65,7 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
 
     @Override
     public void goToLoginFragment() {
-        replaceFragment(LoginFragment.getInstance(), true);
+        replaceFragment(LoginFragment.getInstance(), false);
     }
 
     @Override
@@ -123,7 +123,7 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
             goToLoginFragment();
         }
 
-        DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         //TODO Arreglar excepción en closeDrawer().
         // java.lang.NullPointerException: Attempt to invoke virtual method 'void android.support.v4.widget.DrawerLayout.closeDrawer(int)' on a null object reference
         //drawer.closeDrawer(GravityCompat.START);

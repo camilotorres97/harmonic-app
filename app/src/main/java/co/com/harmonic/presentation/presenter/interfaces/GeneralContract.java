@@ -6,6 +6,9 @@ package co.com.harmonic.presentation.presenter.interfaces;
 
 public interface GeneralContract {
     interface View {
+        void goToAbouthFragment();
+
+        void goToDetailFragment();
     }
 
     interface UserActionsListener {

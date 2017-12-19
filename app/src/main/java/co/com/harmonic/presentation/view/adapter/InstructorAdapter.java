@@ -19,16 +19,19 @@ import co.com.harmonic.domain.model.Instructor;
  * Created by Rodolhan on 16/12/2017.
  */
 
-public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.InstructorViewHolder> {
+public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.InstructorViewHolder> implements View.OnClickListener {
     private List<Instructor> dataSet;
+    private View.OnClickListener listener;
 
     public InstructorAdapter(List<Instructor> dataSet) {
+        super();
         this.dataSet = dataSet;
     }
 
     @Override
     public InstructorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_instructor_item, parent, false);
+        view.setOnClickListener(this);
         return new InstructorViewHolder(view);
     }
 
@@ -47,6 +50,17 @@ public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.In
     @Override
     public int getItemCount() {
         return dataSet.size();
+    }
+
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (listener != null) {
+            listener.onClick(view);
+        }
     }
 
     public class InstructorViewHolder extends RecyclerView.ViewHolder {

@@ -18,16 +18,19 @@ import co.com.harmonic.domain.model.Instrument;
  * Created by Rodolhan on 16/12/2017.
  */
 
-public class InstrumentAdapter extends RecyclerView.Adapter<InstrumentAdapter.InstrumentViewHolder> {
+public class InstrumentAdapter extends RecyclerView.Adapter<InstrumentAdapter.InstrumentViewHolder> implements View.OnClickListener {
     private List<Instrument> dataSet;
+    private View.OnClickListener listener;
 
     public InstrumentAdapter(List<Instrument> dataSet) {
+        super();
         this.dataSet = dataSet;
     }
 
     @Override
     public InstrumentViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_instrument_item, parent, false);
+        view.setOnClickListener(this);
         return new InstrumentViewHolder(view);
     }
 
@@ -44,6 +47,18 @@ public class InstrumentAdapter extends RecyclerView.Adapter<InstrumentAdapter.In
     public int getItemCount() {
         return dataSet.size();
     }
+
+    public void setOnClickListener(View.OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (listener != null) {
+            listener.onClick(view);
+        }
+    }
+
 
     public class InstrumentViewHolder extends RecyclerView.ViewHolder {
 
