@@ -26,7 +26,7 @@ import co.com.harmonic.presentation.view.adapter.InstructorAdapter;
 import co.com.harmonic.presentation.view.adapter.InstrumentAdapter;
 
 public class AboutFragment extends Fragment implements AboutContract.View {
-    static private List<Instrument> instrumentListt;
+    static private List<Instrument> instrumentList;
     static private View view_help;
     static private ImageView imageView;
     private AboutContract.UserActionsListener mActionListener;
@@ -40,7 +40,7 @@ public class AboutFragment extends Fragment implements AboutContract.View {
 
     public static AboutFragment getInstance(List<Instrument> list, View help) {
         view_help = help;
-        instrumentListt = list;
+        instrumentList = list;
         return new AboutFragment();
     }
 
@@ -92,11 +92,11 @@ public class AboutFragment extends Fragment implements AboutContract.View {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         rvInstrumenstList.setLayoutManager(layoutManager);
-        instrumentAdapter = new InstrumentAdapter(instrumentListt);
+        instrumentAdapter = new InstrumentAdapter(instrumentList);
         instrumentAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view_help) {
-                goToAbouthFragment(instrumentListt, view_help);
+                goToAboutFragment(instrumentList, view_help);
             }
         });
         rvInstrumenstList.setAdapter(instrumentAdapter);
@@ -104,7 +104,7 @@ public class AboutFragment extends Fragment implements AboutContract.View {
     }
 
     @Override
-    public void goToAbouthFragment(List<Instrument> result, View view_help) {
+    public void goToAboutFragment(List<Instrument> result, View view_help) {
         MainActivity mainActivity = (MainActivity) getActivity();
         mainActivity.replaceFragment(AboutFragment.getInstance(result, view_help), true);
     }

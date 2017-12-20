@@ -45,7 +45,7 @@ public class InstructorAdapter extends RecyclerView.Adapter<InstructorAdapter.In
                 .into(holder.ivPhoto_Instructor);
         holder.tvText_Instructor.setText(instructor.getNombre());
         holder.stars.setRating(Float.parseFloat(instructor.getRating()));
-        if (acceso == false) {
+        if (!acceso) {
             holder.tvText_Instructor1.setText(instructor.getApodo());
             holder.tvText_Instructor2.setText(instructor.getRol());
         } else {
