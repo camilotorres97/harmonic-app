@@ -12,4 +12,9 @@ public class MainPresenter implements MainContract.UserActionsListener {
     public MainPresenter(MainContract.View view) {
         this.view = view;
     }
+
+    @Override
+    public void goToFirstFragment() {
+        //TODO implement
+    }
 }

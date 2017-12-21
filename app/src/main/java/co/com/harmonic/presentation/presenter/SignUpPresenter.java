@@ -23,14 +23,19 @@ public class SignUpPresenter implements SignUpContract.UserActionsListener {
 
     @Override
     public void onSignUp(String fullName, String email, String password) {
+
+        view.showProgress();
+
         userUseCase.signUp(fullName, email, password, new Callback<User>() {
             @Override
             public void success(User user) {
+                view.hideProgress();
                 view.goToMainActivity();
             }
 
             @Override
             public void error(Exception error) {
+                view.hideProgress();
                 view.showMessageError(error);
             }
         });

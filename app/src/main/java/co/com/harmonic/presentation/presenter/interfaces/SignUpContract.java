@@ -15,6 +15,10 @@ public interface SignUpContract {
         void goToMainActivity();
 
         void showMessageError(Exception error);
+
+        void showProgress();
+
+        void hideProgress();
     }
 
     interface UserActionsListener {

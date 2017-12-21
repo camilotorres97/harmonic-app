@@ -26,8 +26,10 @@ public class ViewPagerAdapter extends PagerAdapter {
 
     public ViewPagerAdapter(Context context) {
         this.context = context;
-        listImages.add("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgreYtRdxF6slh5lGgxNlUa-uem4BW9qpEPDYMgteT_Zwf6bya_Q");
-        listImages.add("https://data.whicdn.com/images/48389311/original.jpg");
+        listImages.add("http://harmonic.com.co/wp-content/uploads/2017/12/pexels-photo-302655.jpeg");
+        listImages.add("http://harmonic.com.co/wp-content/uploads/2017/11/sax.jpeg");
+        listImages.add("http://harmonic.com.co/wp-content/uploads/2017/11/guitar.jpeg");
+        listImages.add("http://harmonic.com.co/wp-content/uploads/2017/11/piano.jpeg");
     }
 
     @Override

@@ -6,8 +6,12 @@ package co.com.harmonic.presentation.presenter.interfaces;
 
 public interface MainContract {
     interface View {
+        void goToLoginFragment();
+
+        void goToMainActivity();
     }
 
     interface UserActionsListener {
+        void goToFirstFragment();
     }
 }

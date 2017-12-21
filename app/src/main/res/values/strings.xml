@@ -1,13 +1,11 @@
 <resources>
     <string name="app_name">Harmonic</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="email">Email</string>
-    <string name="password">Password</string>
     <string name="sign_up">Registrarse</string>
     <string name="sign_in">Ingresar</string>
     <string name="registro_tv">Registrar Usuario</string>
-    <string name="tiet_hint_correo">Correo Electrónico</string>
-    <string name="til_password">Contraseña</string>
+    <string name="til_hint_correo">Correo Electrónico</string>
+    <string name="til_hint_password">Contraseña</string>
     <string name="til_nombre_completo">Nombre Completo </string>
     <string name="rb_estudiante">Estudiante</string>
     <string name="rb_instructor">Instructor</string>

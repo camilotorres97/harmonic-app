@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
 import co.com.harmonic.R;
 import co.com.harmonic.helpers.Utilities;
@@ -27,6 +28,7 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
     private TextInputLayout til_Password;
     private Button btn_registrar;
     private Button btn_cancelar;
+    private ProgressBar progressBar;
 
 
     public SignUpFragment() {
@@ -49,6 +51,7 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
         til_Password = view.findViewById(R.id.til_password);
         btn_registrar = view.findViewById(R.id.btn_registrar);
         btn_cancelar = view.findViewById(R.id.btn_cancelar);
+        progressBar = view.findViewById(R.id.pb_sign_up);
 
         btn_registrar.setOnClickListener(this);
         btn_cancelar.setOnClickListener(this);
@@ -119,5 +122,19 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
     public void showMessageError(Exception error) {
         Snackbar.make(getView(), error.getMessage(), Snackbar.LENGTH_LONG).show();
         Log.e("Error", String.valueOf(error));
+    }
+
+    @Override
+    public void showProgress() {
+        progressBar.setVisibility(View.VISIBLE);
+        btn_cancelar.setEnabled(false);
+        btn_registrar.setEnabled(false);
+    }
+
+    @Override
+    public void hideProgress() {
+        progressBar.setVisibility(View.INVISIBLE);
+        btn_cancelar.setEnabled(true);
+        btn_registrar.setEnabled(true);
     }
 }

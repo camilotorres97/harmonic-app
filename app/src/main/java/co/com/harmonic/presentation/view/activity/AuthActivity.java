@@ -23,13 +23,16 @@ import co.com.harmonic.presentation.view.fragment.LoginFragment;
 public class AuthActivity extends AppCompatActivity implements AuthContract.View, NavigationView.OnNavigationItemSelectedListener {
     private AuthContract.UserActionsLister mActionsListener;
     private ActionBarDrawerToggle toggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         mActionsListener = new AuthPresenter(this);
+
         final DrawerLayout drawer = findViewById(R.id.auth_activity);
         toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -107,7 +110,7 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
-            goToGeneralFragment();
+            //goToGeneralFragment();
         } else if (id == R.id.nav_notifications) {
 
         } else if (id == R.id.nav_favorites) {
@@ -119,7 +122,7 @@ public class AuthActivity extends AppCompatActivity implements AuthContract.View
         } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_login) {
-            goToLoginFragment();
+            //goToLoginFragment();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

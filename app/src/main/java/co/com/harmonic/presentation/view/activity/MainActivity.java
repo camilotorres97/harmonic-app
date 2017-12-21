@@ -1,5 +1,6 @@
 package co.com.harmonic.presentation.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -18,6 +19,7 @@ import co.com.harmonic.R;
 import co.com.harmonic.presentation.presenter.MainPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.MainContract;
 import co.com.harmonic.presentation.view.fragment.GeneralFragment;
+import co.com.harmonic.presentation.view.fragment.LoginFragment;
 
 public class MainActivity extends AppCompatActivity
         implements MainContract.View, NavigationView.OnNavigationItemSelectedListener {
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_inicio) {
-
+            gotoGeneralFragment();
         } else if (id == R.id.nav_notifications) {
 
         } else if (id == R.id.nav_favorites) {
@@ -120,11 +122,23 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_help) {
 
         } else if (id == R.id.nav_login) {
-
+            goToLoginFragment();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void goToLoginFragment() {
+        replaceFragment(LoginFragment.getInstance(), false);
+    }
+
+    @Override
+    public void goToMainActivity() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
