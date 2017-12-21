@@ -134,10 +134,4 @@ public class MainActivity extends AppCompatActivity
         replaceFragment(LoginFragment.getInstance(), false);
     }
 
-    public void setEnableBackbutton(boolean enable) {
-        getSupportActionBar().setDisplayHomeAsUpEnabled(enable);
-        if (!enable) {
-            toggle.syncState();
-        }
-    }
 }

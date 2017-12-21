@@ -34,7 +34,7 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((MainActivity) getActivity()).setEnableBackbutton(false);
+//        ((MainActivity) getActivity()).setEnableBackbutton(false);
         final View view = inflater.inflate(R.layout.fragment_general, container, false);
         mActionListener = new GeneralPresenter(this);
         //ViewPager
