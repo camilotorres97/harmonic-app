@@ -11,7 +11,7 @@ import co.com.harmonic.domain.model.Instrument;
 
 public interface GeneralContract {
     interface View {
-        void goToAbouthFragment(List<Instrument> result, android.view.View view_help);
+        void goToAbouthFragment(android.view.View view_help);
 
         void goToDetailFragment(android.view.View view_help);
 

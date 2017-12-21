@@ -10,10 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
-
 import co.com.harmonic.R;
-import co.com.harmonic.domain.model.Instrument;
 import co.com.harmonic.presentation.presenter.GeneralPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.GeneralContract;
 import co.com.harmonic.presentation.view.activity.MainActivity;
@@ -53,7 +50,7 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
         instrumentAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view_help) {
-                goToAbouthFragment(mActionListener.getAllInstruments(), view_help);
+                goToAbouthFragment(view_help);
             }
         });
         rvInstrumenstList.setAdapter(instrumentAdapter);
@@ -86,9 +83,9 @@ public class GeneralFragment extends Fragment implements GeneralContract.View {
     }
 
     @Override
-    public void goToAbouthFragment(List<Instrument> result, View view_help) {
+    public void goToAbouthFragment(View view_help) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.replaceFragment(AboutFragment.getInstance(result, view_help), true);
+        mainActivity.replaceFragment(AboutFragment.getInstance(view_help), true);
     }
 
     @Override

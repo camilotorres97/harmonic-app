@@ -12,13 +12,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import co.com.harmonic.R;
-import co.com.harmonic.domain.model.Instructor;
-import co.com.harmonic.domain.model.Instrument;
-import co.com.harmonic.helpers.Callback;
 import co.com.harmonic.presentation.presenter.AboutPresenter;
 import co.com.harmonic.presentation.presenter.interfaces.AboutContract;
 import co.com.harmonic.presentation.view.activity.MainActivity;
@@ -26,21 +20,18 @@ import co.com.harmonic.presentation.view.adapter.InstructorAdapter;
 import co.com.harmonic.presentation.view.adapter.InstrumentAdapter;
 
 public class AboutFragment extends Fragment implements AboutContract.View {
-    static private List<Instrument> instrumentList;
     static private View view_help;
     static private ImageView imageView;
     private AboutContract.UserActionsListener mActionListener;
     private RecyclerView rvInstrumenstList;
     private RecyclerView rvInstructorsList;
-    private InstrumentAdapter instrumentAdapter = new InstrumentAdapter(new ArrayList<Instrument>());
-    private InstructorAdapter instructorAdapter = new InstructorAdapter(new ArrayList<Instructor>(), true);
+
     public AboutFragment() {
         // Required empty public constructor
     }
 
-    public static AboutFragment getInstance(List<Instrument> list, View help) {
+    public static AboutFragment getInstance(View help) {
         view_help = help;
-        instrumentList = list;
         return new AboutFragment();
     }
 
@@ -49,35 +40,31 @@ public class AboutFragment extends Fragment implements AboutContract.View {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_about, container, false);
         mActionListener = new AboutPresenter(this);
-        //Seteo ImageView
+        //Set ImageView
         imageView = view.findViewById(R.id.iv_Instrumento);
         ImageView image_help = view_help.findViewById(R.id.ivPhoto_Instrument);
         Glide.with(view).load(image_help.getDrawable()).into(imageView);
         //RecyclerView Instrumentos
         rvInstrumenstList = view.findViewById(R.id.rvInstrumenstList);
-        getAllInstruments();
-        //RecyclerView Instructos
-        TextView id = view_help.findViewById(R.id.tvInstrument);
-        rvInstructorsList = view.findViewById(R.id.rvInstructorsList);
-        mActionListener.getAllInstructors(id.getText().toString().toLowerCase(), new Callback<List<Instructor>>() {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        rvInstrumenstList.setLayoutManager(layoutManager);
+        InstrumentAdapter instrumentAdapter = new InstrumentAdapter(mActionListener.getAllInstruments());
+        instrumentAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void success(List<Instructor> result) {
-                getAllInstructors(result);
-            }
-
-            @Override
-            public void error(Exception error) {
-
+            public void onClick(View view_help) {
+                goToAboutFragment(view_help);
             }
         });
-        return view;
-    }
-
-    private void getAllInstructors(List<Instructor> result) {
-        LinearLayoutManager layoutManager1 = new LinearLayoutManager(getContext());
-        layoutManager1.setOrientation(LinearLayoutManager.VERTICAL);
-        rvInstructorsList.setLayoutManager(layoutManager1);
-        instructorAdapter = new InstructorAdapter(result, true);
+        rvInstrumenstList.setAdapter(instrumentAdapter);
+        mActionListener.loadAllInstruments();
+        //RecyclerView Instructores
+        TextView id = view_help.findViewById(R.id.tvInstrument);
+        rvInstructorsList = view.findViewById(R.id.rvInstructorsList);
+        layoutManager = new LinearLayoutManager(getContext());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        rvInstructorsList.setLayoutManager(layoutManager);
+        InstructorAdapter instructorAdapter = new InstructorAdapter(mActionListener.getAllInstructors(), true);
         instructorAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view_help) {
@@ -85,28 +72,24 @@ public class AboutFragment extends Fragment implements AboutContract.View {
             }
         });
         rvInstructorsList.setAdapter(instructorAdapter);
-        rvInstructorsList.getAdapter().notifyDataSetChanged();
+        mActionListener.loadAllInstructors(id.getText().toString().toLowerCase());
+        return view;
     }
 
-    private void getAllInstruments() {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        rvInstrumenstList.setLayoutManager(layoutManager);
-        instrumentAdapter = new InstrumentAdapter(instrumentList);
-        instrumentAdapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view_help) {
-                goToAboutFragment(instrumentList, view_help);
-            }
-        });
-        rvInstrumenstList.setAdapter(instrumentAdapter);
+    @Override
+    public void refreshInstruments() {
         rvInstrumenstList.getAdapter().notifyDataSetChanged();
     }
 
     @Override
-    public void goToAboutFragment(List<Instrument> result, View view_help) {
+    public void refreshInstructors() {
+        rvInstructorsList.getAdapter().notifyDataSetChanged();
+    }
+
+    @Override
+    public void goToAboutFragment(View view_help) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.replaceFragment(AboutFragment.getInstance(result, view_help), false);
+        mainActivity.replaceFragment(AboutFragment.getInstance(view_help), false);
     }
 
     @Override
