@@ -106,7 +106,7 @@ public class AboutFragment extends Fragment implements AboutContract.View {
     @Override
     public void goToAboutFragment(List<Instrument> result, View view_help) {
         MainActivity mainActivity = (MainActivity) getActivity();
-        mainActivity.replaceFragment(AboutFragment.getInstance(result, view_help), true);
+        mainActivity.replaceFragment(AboutFragment.getInstance(result, view_help), false);
     }
 
     @Override
