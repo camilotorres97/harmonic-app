@@ -1,5 +1,6 @@
 package co.com.harmonic.presentation.presenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import co.com.harmonic.domain.model.Instructor;
@@ -19,19 +20,28 @@ public class GeneralPresenter implements GeneralContract.UserActionsListener {
     private GeneralContract.View view;
     private InstrumentUseCase instrumentUseCase;
     private InstructorUseCase instructorUseCase;
+    private List<Instrument> instrumentList;
+    private List<Instructor> instructorList;
 
     public GeneralPresenter(GeneralContract.View view) {
         this.view = view;
-        instrumentUseCase = new InstrumentUseCaseImpl();
-        instructorUseCase = new InstructorUseCaseImpl();
+        this.instrumentUseCase = new InstrumentUseCaseImpl();
+        this.instructorUseCase = new InstructorUseCaseImpl();
+        this.instrumentList = new ArrayList<>(0);
+        this.instructorList = new ArrayList<>(0);
+
     }
 
     @Override
-    public void getAllInstruments(final Callback<List<Instrument>> listCallback) {
+    public void loadAllInstruments() {
         instrumentUseCase.getAllInstruments(new Callback<List<Instrument>>() {
             @Override
             public void success(List<Instrument> result) {
-                listCallback.success(result);
+                instrumentList.clear();
+                if (result != null) {
+                    instrumentList.addAll(result);
+                    view.refreshInstruments();
+                }
             }
 
             @Override
@@ -42,11 +52,20 @@ public class GeneralPresenter implements GeneralContract.UserActionsListener {
     }
 
     @Override
-    public void getAllInstructors(final Callback<List<Instructor>> listCallback) {
+    public List<Instrument> getAllInstruments() {
+        return instrumentList;
+    }
+
+    @Override
+    public void loadAllInstructors() {
         instructorUseCase.getAllInstructors(new Callback<List<Instructor>>() {
             @Override
             public void success(List<Instructor> result) {
-                listCallback.success(result);
+                instructorList.clear();
+                if (result != null) {
+                    instructorList.addAll(result);
+                    view.refreshInstructors();
+                }
             }
 
             @Override
@@ -55,4 +74,11 @@ public class GeneralPresenter implements GeneralContract.UserActionsListener {
             }
         });
     }
+
+    @Override
+    public List<Instructor> getAllInstructors() {
+        return instructorList;
+    }
+
+
 }

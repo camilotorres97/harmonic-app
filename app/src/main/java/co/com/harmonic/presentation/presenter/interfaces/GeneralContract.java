@@ -4,7 +4,6 @@ import java.util.List;
 
 import co.com.harmonic.domain.model.Instructor;
 import co.com.harmonic.domain.model.Instrument;
-import co.com.harmonic.helpers.Callback;
 
 /**
  * Created by Rodolhan on 16/12/2017.
@@ -15,11 +14,20 @@ public interface GeneralContract {
         void goToAbouthFragment(List<Instrument> result, android.view.View view_help);
 
         void goToDetailFragment(android.view.View view_help);
+
+        void refreshInstruments();
+
+        void refreshInstructors();
     }
 
     interface UserActionsListener {
-        void getAllInstruments(Callback<List<Instrument>> listCallback);
+        void loadAllInstruments();
 
-        void getAllInstructors(Callback<List<Instructor>> listCallback);
+        List<Instrument> getAllInstruments();
+
+        void loadAllInstructors();
+
+        List<Instructor> getAllInstructors();
+
     }
 }

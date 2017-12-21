@@ -1,6 +1,5 @@
 package co.com.harmonic.presentation.view.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity
             goToLoginFragment();
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -135,10 +134,10 @@ public class MainActivity extends AppCompatActivity
         replaceFragment(LoginFragment.getInstance(), false);
     }
 
-    @Override
-    public void goToMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
+    public void setEnableBackbutton(boolean enable) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(enable);
+        if (!enable) {
+            toggle.syncState();
+        }
     }
 }
